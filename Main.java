@@ -19,7 +19,6 @@ import service.TicketService;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
         TicketRepository ticketRepo = new JdbcTicketRepository();
         UserRepository userRepo = new JdbcUserRepository();
