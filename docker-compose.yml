@@ -1,0 +1,20 @@
+services:
+  db:
+    build: .
+    container_name: helpdesk-postgres
+    environment:
+      POSTGRES_DB: helpdesk_db
+      POSTGRES_USER: helpdesk_app
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - helpdesk_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helpdesk_app -d helpdesk_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  helpdesk_pgdata:

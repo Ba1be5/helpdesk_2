@@ -1,0 +1,14 @@
+package repository;
+
+import model.Category;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface CategoryRepository {
+    List<Category> findAll();
+
+    Optional<Category> findById(long id);
+
+    boolean deactivate(long id);
+}
